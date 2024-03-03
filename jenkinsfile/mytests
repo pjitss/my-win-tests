@@ -21,14 +21,14 @@ node {
         if (service == "APP") {
             stage("$action $Service services in $envname") {
                 ansiblePlaybook(
-                    playbook: "mymain.yml",
+                    playbook: "playbooks/mymain.yml",
                     extras: "-i inventories/$envname/myapps.ini -e target_host=${comp} -e Service=\"$action\""
                 )
             }
         } else if (service == "APP2") {
             stage("$action $Service service in $envname") {
                 ansiblePlaybook(
-                    playbook: "mymain.yml",
+                    playbook: "playbooks/mymain.yml",
                     extras: "-i inventories/$envname/myapps.ini -e target_host=${comp} -e Service=\"$action\""
                 )
             }
