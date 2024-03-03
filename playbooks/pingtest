@@ -4,7 +4,7 @@
 #- debug: var=ping_status
 
 - name: Retrieve active network interface details
-  ansible.windows.win_shell: |
+  win_shell: |
     $nic = Get-NetAdapter | Where-Object {$_.Status -eq 'Up'} | Select-Object -First 1
     Write-Output $nic.Name
   register: active_nic
