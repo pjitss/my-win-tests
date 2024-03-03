@@ -1,6 +1,6 @@
 - name: "get services current status"
   win_service:
-    name: "W3SVC"
+    name: w3svc
   register: services_status
 #  with_items: "{{ services }}"
   when: 
