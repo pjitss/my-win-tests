@@ -1,8 +1,8 @@
 - name: "get services current status"
   win_service:
-    name: "{{ item }}"
+    name: "W3SVC"
   register: services_status
-  with_items: "{{ services }}"
+#  with_items: "{{ services }}"
   when: 
     - comp == "app2"
 
