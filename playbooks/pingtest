@@ -1,4 +1,4 @@
-- name: "ping test"
+- name: ping test
   win_ping:
   register: ping_status
 - debug: var=ping_status
