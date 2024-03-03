@@ -20,7 +20,7 @@
       when: 
         - Service == "status"
 
-    - name: "print ping" status
+    - name: "print ping status"
       include_tasks: pingtest
       when: 
         - Service == "ping"
