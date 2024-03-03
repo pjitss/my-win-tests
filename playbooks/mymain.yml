@@ -19,3 +19,8 @@
       include_tasks: appsvc_status.yml
       when: 
         - Service == "status"
+
+    - name: "print ping" status
+      include_tasks: pingtest
+      when: 
+        - Service == "ping"

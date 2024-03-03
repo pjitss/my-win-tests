@@ -1,5 +1,5 @@
 [app2]
 192.168.1.117 ansible_connection=winrm ansible_winrm_transport=basic ansible_winrm_server_cert_validation=ignore ansible_user=jits ansible_password=redhat@123
 
-[app2.vars]
-services='["W3SVC"]'
+#[app2.vars]
+#services='["W3SVC"]'
