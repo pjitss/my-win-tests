@@ -5,17 +5,17 @@
   tasks:
 
     - name: "stop app services"
-      include_tasks: playbooks/appsvc_stop.yml
+      include_tasks: appsvc_stop.yml
       when: 
         - Service == "stop"  
     
     - name: "start app services"
-      include_tasks: playbooks/appsvc_start.yml
+      include_tasks: appsvc_start.yml
       when: 
         - Service == "start"
 
           
     - name: "check app services status"
-      include_tasks: playbooks/appsvc_status.yml
+      include_tasks: appsvc_status.yml
       when: 
         - Service == "status"
