@@ -4,6 +4,6 @@
 #- debug: var=ping_status
 
 - name: get NIC details
-  win_command: ipconfig /all
+  win_command: wmic nic where "NetConnectionID != NULL" get NetConnectionID
   register: nic_details
 - debug: var=nic_details
