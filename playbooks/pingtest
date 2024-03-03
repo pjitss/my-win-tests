@@ -3,7 +3,11 @@
 #  register: ping_status
 #- debug: var=ping_status
 
-- name: get NIC details
-  win_command: wmic nic where "NetConnectionID != NULL" get NetConnectionID
-  register: nic_details
-- debug: var=nic_details
+- name: Retrieve active network interface details
+  ansible.windows.win_shell: |
+    $nic = Get-NetAdapter | Where-Object {$_.Status -eq 'Up'} | Select-Object -First 1
+    Write-Output $nic.Name
+  register: active_nic
+- debug: var=active_nic
+
+
