@@ -3,7 +3,7 @@ properties(
         parameters([
             string(defaultValue: 'app2', name: 'comp'),
             string(defaultValue: 'APP', name: 'service'),
-            string(defaultValue: 'status', name: 'action'),
+            string(defaultValue: 'ping', name: 'action'),
             string(defaultValue: 'prajeet', name: 'branch'),
             string(defaultValue: 'PR', name: 'envname')
         ])
