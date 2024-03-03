@@ -1,0 +1,37 @@
+properties(
+    [
+        parameters([
+            string(defaultValue: 'app2', name: 'comp'),
+            string(defaultValue: 'APP', name: 'service'),
+            string(defaultValue: 'status', name: 'action'),
+            string(defaultValue: 'prajeet', name: 'branch'),
+            string(defaultValue: 'PR', name: 'envname')
+        ])
+    ]
+)
+
+node {
+    
+    cleanWs()
+
+    stage ('git repo checkout') {
+        git branch: 'prajeet', credentialsId: 'myjenkins', url: 'git@github.com:pjitss/my-win-tests.git'
+    }
+
+        if (service == "APP") {
+            stage("$action $Service services in $envname") {
+                ansiblePlaybook(
+                    playbook: "mymain.yml",
+                    extras: "-i inventories/$envname/myapps.ini -e target_host=${comp} -e Service=\"$action\""
+                )
+            }
+        } else if (service == "APP2") {
+            stage("$action $Service services in $envname") {
+                ansiblePlaybook(
+                    playbook: "mymain.yml",
+                    extras: "-i inventories/$envname/myapps.ini -e target_host=${comp} -e Service=\"$action\""
+                )
+            }
+        }
+
+}
